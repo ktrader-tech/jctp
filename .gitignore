@@ -1,0 +1,9 @@
+**/.idea
+**/.gradle
+**/build/
+cpp/src/jctp.*
+lib/jctp.dll
+lib/libjctp.so
+*.jar
+*.java
+!module-info.java
