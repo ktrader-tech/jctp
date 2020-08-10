@@ -64,6 +64,14 @@ dependencies {
 
 [Releases](https://github.com/RationalityFrontline/jctp/releases)
 
+使用 Jar 包前请先添加 [native-lib-loader](https://github.com/scijava/native-lib-loader) 依赖：
+```kotlin
+// Kotlin DSL
+dependencies {
+    implementation("org.scijava:native-lib-loader:2.3.4")
+}
+```
+
 ## Build
 
 **前提要求（版本信息仅供参考，非必要）：**
