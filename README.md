@@ -1,4 +1,4 @@
-# JCTP
+# JCTP  ![Bintray](https://img.shields.io/bintray/v/rationalityfrontline/jctp/jctp?label=JCenter) ![GitHub](https://img.shields.io/github/license/rationalityfrontline/jctp)
 
 基于 [SWIG](http://www.swig.org/) 实现的对[上期技术](http://www.sfit.com.cn/) CTP 的封装。当前封装版本为 6.3.19，同时支持 64 位的 Windows 及 Linux 操作系统，动态链接库已被包含至 jar 包内，并在类加载时自动 loadLibrary，只需添加 jar 包即可直接使用。
 
@@ -30,16 +30,23 @@ sudo dpkg-reconfigure locales
 
 **Gradle:**
 
+首先将 JCenter 添加至仓库中：
+
+```groovy
+repositories {
+    jcenter()
+}
+```
 ```groovy
 // Groovy DSL
 dependencies {
-    implementation 'org.rationalityfrontline.jctp:jctp:6.3.19-1.0'
+    implementation 'org.rationalityfrontline:jctp:6.3.19-1.0'
 }
 ```
 ```kotlin
 // Kotlin DSL
 dependencies {
-    implementation("org.rationalityfrontline.jctp:jctp:6.3.19-1.0")
+    implementation("org.rationalityfrontline:jctp:6.3.19-1.0")
 }
 ```
 
@@ -47,9 +54,10 @@ dependencies {
 
 ```xml
 <dependency>
-  <groupId>org.rationalityfrontline.jctp</groupId>
-  <artifactId>jctp</artifactId>
-  <version>6.3.19-1.0</version>
+	<groupId>org.rationalityfrontline</groupId>
+	<artifactId>jctp</artifactId>
+	<version>6.3.19-1.0</version>
+	<type>pom</type>
 </dependency>
 ```
 **Jar:**

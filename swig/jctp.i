@@ -50,6 +50,11 @@ import org.scijava.nativelib.NativeLoader;
 %}
 %pragma(java) jniclasscode=%{
 	private static boolean libraryLoaded = false;
+	
+	/**
+     * 检查动态链接库是否已被正确加载
+     * @return true if loaded else false
+     */
     public final static boolean libraryLoaded() {
         return libraryLoaded;
     }
