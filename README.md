@@ -1,6 +1,6 @@
-# JCTP  [![JCenter Version](https://img.shields.io/bintray/v/rationalityfrontline/jctp/jctp?label=JCenter)](https://bintray.com/rationalityfrontline/jctp/jctp) [![Apache License 2.0](https://img.shields.io/github/license/rationalityfrontline/jctp)](https://github.com/RationalityFrontline/jctp/blob/master/LICENSE)
+# JCTP  [![JCenter Version](https://img.shields.io/bintray/v/rationalityfrontline/jctp/jctp?label=JCenter)](https://bintray.com/rationalityfrontline/jctp/jctp) ![platform](https://img.shields.io/badge/platform-windows%7Clinux-green) [![Apache License 2.0](https://img.shields.io/github/license/rationalityfrontline/jctp)](https://github.com/RationalityFrontline/jctp/blob/master/LICENSE)
 
-基于 [SWIG](http://www.swig.org/) 实现的对[上期技术](http://www.sfit.com.cn/) CTP 的封装。当前封装版本为 6.3.19，同时支持 64 位的 Windows 及 Linux 操作系统，动态链接库已被包含至 jar 包内，并在类加载时自动 loadLibrary，只需添加 jar 包即可直接使用。
+基于 [SWIG](http://www.swig.org/) 实现的对[上期技术](http://www.sfit.com.cn/) CTP 的封装。当前封装版本为 6.3.19，支持 64 位的 Windows 及 Linux 操作系统，动态链接库已被包含至 jar 包内，并在类加载时自动 loadLibrary，只需添加 jar 包即可直接使用。
 
 ## Usage
 
