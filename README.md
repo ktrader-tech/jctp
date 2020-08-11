@@ -84,29 +84,15 @@ dependencies {
 **Windows**
 
 ```powershell
-cd swig
 build.cmd
-cd ..\cpp
-build.cmd
-cd ..\java
-gradlew jar
 ```
 
 **Linux**
 
 ```bash
-cd swig
 ./build.sh
-cd ../cpp
-./build.sh
-cd ../java
-./gradlew jar
 ```
-以上为单平台版本编译，如需编译跨平台版本，则需要执行以下步骤：
-
-1. 在任意平台上执行 swig 目录下的 build 脚本
-2. 在 Windows 及 Linux 下各运行一次 cpp 目录下的 build 脚本
-3. 在任意平台上在 java 目录下执行 gradlew jar 命令
+以上为单平台版本编译，如需编译跨平台版本，则需要在两个平台下各编译一次（顺序随意）。
 
 build 完毕后，生成的 jar 包在 java/build/libs 目录下。
 

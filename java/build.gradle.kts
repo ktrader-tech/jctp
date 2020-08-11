@@ -1,6 +1,7 @@
 import com.jfrog.bintray.gradle.BintrayExtension.PackageConfig
 import com.jfrog.bintray.gradle.BintrayExtension.VersionConfig
 import java.util.Date
+import org.gradle.internal.os.OperatingSystem
 
 plugins {
     `java-library`
@@ -22,12 +23,18 @@ dependencies {
 
 tasks {
     compileJava {
+        options.encoding = "utf-8"
         doFirst {
+            val os = OperatingSystem.current()
+            val lineBreak = when {
+                os.isWindows -> "\r\n"
+                else -> "\n"
+            }
             file("src/main/java/org/rationalityfrontline/jctp/jctpJNI.java").run {
-                writeText(readText().replace(
-                        "  static {\r\n" +
-                                "    swig_module_init();\r\n" +
-                                "  }\r\n".trimMargin(), ""))
+                writeText(readText(Charsets.UTF_8).replace(
+                                "  static {$lineBreak" +
+                                "    swig_module_init();$lineBreak" +
+                                "  }$lineBreak", ""), Charsets.UTF_8)
             }
         }
     }
@@ -93,7 +100,9 @@ publishing {
 
 bintray {
     fun env(propertyName: String): String {
-        return project.property(propertyName) as String
+        return if (project.hasProperty(propertyName)) {
+            project.property(propertyName) as String
+        } else "Unknown"
     }
 
     user = env("BINTRAY_USER")
