@@ -1,24 +1,23 @@
-import com.jfrog.bintray.gradle.BintrayExtension.PackageConfig
-import com.jfrog.bintray.gradle.BintrayExtension.VersionConfig
-import java.util.Date
 import org.gradle.internal.os.OperatingSystem
 
 plugins {
     `java-library`
     `maven-publish`
-    id("org.javamodularity.moduleplugin") version "1.7.0"
-    id("com.jfrog.bintray") version "1.8.5"
+    signing
 }
 
-group = "org.rationalityfrontline"
-version = "6.3.19-1.0"
-
 repositories {
-    jcenter()
+    mavenCentral()
 }
 
 dependencies {
-    implementation("org.scijava:native-lib-loader:2.3.4")
+    implementation("org.scijava:native-lib-loader:2.3.5")
+}
+
+java {
+    modularity.inferModulePath.set(true)
+    withJavadocJar()
+    withSourcesJar()
 }
 
 tasks {
@@ -53,30 +52,21 @@ tasks {
             encoding = "UTF-8"
         }
     }
-    register<Jar>("javadocJar") {
-        archiveClassifier.set("javadoc")
-        dependsOn(javadoc)
-        from(getByName<Javadoc>("javadoc").destinationDir)
-    }
-    register<Jar>("sourcesJar") {
-        archiveClassifier.set("sources")
-        from(sourceSets["main"].allSource)
-    }
 }
 
+group = "org.rationalityfrontline"
+version = "6.3.19-1.0.0"
 val NAME = project.name
 val DESC = "Java wrapper for CTP"
 val GITHUB_REPO = "RationalityFrontline/jctp"
 
 publishing {
     publications {
-        create<MavenPublication>("mavenPublish") {
+        create<MavenPublication>("maven") {
             from(components["java"])
-            artifact(tasks["sourcesJar"])
-            artifact(tasks["javadocJar"])
             pom {
                 name.set(NAME)
-                description.set("$NAME $version - $DESC")
+                description.set(DESC)
                 url.set("https://github.com/$GITHUB_REPO")
                 licenses {
                     license {
@@ -88,44 +78,36 @@ publishing {
                     developer {
                         name.set("RationalityFrontline")
                         email.set("rationalityfrontline@gmail.com")
+                        organization.set("RationalityFrontline")
+                        organizationUrl.set("https://github.com/RationalityFrontline")
                     }
                 }
                 scm {
-                    url.set("https://github.com/$GITHUB_REPO")
+                    connection.set("scm:git:git://github.com/$GITHUB_REPO.git")
+                    developerConnection.set("scm:git:ssh://github.com:$GITHUB_REPO.git")
+                    url.set("https://github.com/$GITHUB_REPO/tree/master")
                 }
+            }
+        }
+    }
+    repositories {
+        fun env(propertyName: String): String {
+            return if (project.hasProperty(propertyName)) {
+                project.property(propertyName) as String
+            } else "Unknown"
+        }
+        maven {
+            val releasesRepoUrl = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
+            val snapshotsRepoUrl = uri("https://oss.sonatype.org/content/repositories/snapshots/")
+            url = if (version.toString().endsWith("SNAPSHOT")) snapshotsRepoUrl else releasesRepoUrl
+            credentials {
+                username = env("ossrhUsername")
+                password = env("ossrhPassword")
             }
         }
     }
 }
 
-bintray {
-    fun env(propertyName: String): String {
-        return if (project.hasProperty(propertyName)) {
-            project.property(propertyName) as String
-        } else "Unknown"
-    }
-
-    user = env("BINTRAY_USER")
-    key = env("BINTRAY_KEY")
-    publish = true
-    override = true
-    setPublications("mavenPublish")
-    pkg(closureOf<PackageConfig>{
-        repo = NAME
-        name = NAME
-        desc = DESC
-        setLabels("java", "ctp", "quant", "futures")
-        setLicenses("Apache-2.0")
-        publicDownloadNumbers = true
-        githubRepo = GITHUB_REPO
-        vcsUrl = "https://github.com/$githubRepo"
-        websiteUrl = vcsUrl
-        issueTrackerUrl = "$vcsUrl/issues"
-        version(closureOf<VersionConfig> {
-            name = "${project.version}"
-            desc = "JCTP - $DESC"
-            released = "${Date()}"
-            vcsTag = name
-        })
-    })
+signing {
+    sign(publishing.publications["maven"])
 }

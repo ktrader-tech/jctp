@@ -1,4 +1,5 @@
-# JCTP  [![JCenter Version](https://img.shields.io/bintray/v/rationalityfrontline/jctp/jctp?label=JCenter)](https://bintray.com/rationalityfrontline/jctp/jctp) ![platform](https://img.shields.io/badge/platform-windows%7Clinux-green) [![Apache License 2.0](https://img.shields.io/github/license/rationalityfrontline/jctp)](https://github.com/RationalityFrontline/jctp/blob/master/LICENSE)
+# JCTP  
+[![Maven Central](https://img.shields.io/maven-central/v/org.rationalityfrontline/jctp.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22org.rationalityfrontline%22%20AND%20a:%22jctp%22) ![platform](https://img.shields.io/badge/platform-windows%7Clinux-green) [![Apache License 2.0](https://img.shields.io/github/license/rationalityfrontline/jctp)](https://github.com/RationalityFrontline/jctp/blob/master/LICENSE)
 
 基于 [SWIG](http://www.swig.org/) 实现的对[上期技术](http://www.sfit.com.cn/) CTP 的封装。当前封装版本为 6.3.19，支持 64 位的 Windows 及 Linux 操作系统，动态链接库已被包含至 jar 包内，并在类加载时自动 loadLibrary，只需添加 jar 包即可直接使用。
 
@@ -28,25 +29,15 @@ sudo dpkg-reconfigure locales
 
 ## Download
 
-**Gradle:**
+**Gradle Kotlin DSL:**
 
-首先将 JCenter 添加至仓库中：
-
-```groovy
-repositories {
-    jcenter()
-}
-```
-```groovy
-// Groovy DSL
-dependencies {
-    implementation 'org.rationalityfrontline:jctp:6.3.19-1.0'
-}
-```
 ```kotlin
-// Kotlin DSL
+repositories {
+    mavenCentral()
+}
+
 dependencies {
-    implementation("org.rationalityfrontline:jctp:6.3.19-1.0")
+    implementation("org.rationalityfrontline:jctp:6.3.19-1.0.0")
 }
 ```
 
@@ -54,10 +45,9 @@ dependencies {
 
 ```xml
 <dependency>
-	<groupId>org.rationalityfrontline</groupId>
-	<artifactId>jctp</artifactId>
-	<version>6.3.19-1.0</version>
-	<type>pom</type>
+    <groupId>org.rationalityfrontline</groupId>
+    <artifactId>jctp</artifactId>
+    <version>6.3.19-1.0.0</version>
 </dependency>
 ```
 **Jar:**
@@ -66,9 +56,8 @@ dependencies {
 
 使用 Jar 包前请先添加 [native-lib-loader](https://github.com/scijava/native-lib-loader) 依赖：
 ```kotlin
-// Kotlin DSL
 dependencies {
-    implementation("org.scijava:native-lib-loader:2.3.4")
+    implementation("org.scijava:native-lib-loader:2.3.5")
 }
 ```
 
