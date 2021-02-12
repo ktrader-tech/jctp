@@ -67,6 +67,7 @@ publishing {
             pom {
                 name.set(NAME)
                 description.set(DESC)
+                packaging = "jar"
                 url.set("https://github.com/$GITHUB_REPO")
                 licenses {
                     license {
