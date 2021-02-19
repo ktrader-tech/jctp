@@ -6,6 +6,12 @@ plugins {
     signing
 }
 
+group = "org.rationalityfrontline"
+version = "6.3.19-1.0.1"
+val NAME = project.name
+val DESC = "Java wrapper for CTP"
+val GITHUB_REPO = "RationalityFrontline/jctp"
+
 repositories {
     mavenCentral()
 }
@@ -40,11 +46,11 @@ tasks {
     jar {
         from("../lib") {
             include("*.dll")
-            into("META-INF/lib/windows_64")
+            into("natives/windows_64")
         }
         from("../lib") {
             include("*.so")
-            into("META-INF/lib/linux_64")
+            into("natives/linux_64")
         }
     }
     withType(Javadoc::class.java) {
@@ -53,12 +59,6 @@ tasks {
         }
     }
 }
-
-group = "org.rationalityfrontline"
-version = "6.3.19-1.0.0"
-val NAME = project.name
-val DESC = "Java wrapper for CTP"
-val GITHUB_REPO = "RationalityFrontline/jctp"
 
 publishing {
     publications {

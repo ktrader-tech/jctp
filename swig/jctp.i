@@ -70,6 +70,18 @@ import org.scijava.nativelib.NativeLoader;
             System.err.println("Failed to load CTP native library: \n" + e);
         }
     }
+
+    /**
+     * 删除 C++ 中对 jctpJNI class 的全局引用，避免 GC root 的持续存在
+     */
+    public final static native void release();
+%}
+
+%wrapper %{
+SWIGEXPORT void JNICALL Java_org_rationalityfrontline_jctp_jctpJNI_release(JNIEnv *jenv, jclass jcls) {
+    jenv->DeleteGlobalRef(Swig::jclass_jctpJNI);
+    Swig::jclass_jctpJNI = NULL;
+}
 %}
 
 %ignore THOST_FTDC_VTC_BankBankToFuture;
