@@ -98,7 +98,7 @@ https://github.com/scijava/native-lib-loader
 JCTP is released under the [Apache 2.0 license](https://github.com/RationalityFrontline/jctp/blob/master/LICENSE).
 
 ```
-Copyright 2020 RationalityFrontline
+Copyright 2020-2021 RationalityFrontline
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
