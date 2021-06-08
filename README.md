@@ -37,7 +37,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.rationalityfrontline:jctp:6.3.19-1.0.0")
+    implementation("org.rationalityfrontline:jctp:6.3.19-1.0.2")
 }
 ```
 
@@ -47,7 +47,7 @@ dependencies {
 <dependency>
     <groupId>org.rationalityfrontline</groupId>
     <artifactId>jctp</artifactId>
-    <version>6.3.19-1.0.0</version>
+    <version>6.3.19-1.0.2</version>
 </dependency>
 ```
 **Jar:**
