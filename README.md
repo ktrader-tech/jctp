@@ -3,7 +3,7 @@
 
 基于 [SWIG](http://www.swig.org/) 实现的对[上期技术](http://www.sfit.com.cn/) CTP 的封装。支持 64 位的 Windows 及 Linux 操作系统，动态链接库已被包含至 jar 包内，并在类加载时自动 loadLibrary，只需添加 jar 包即可直接使用。
 
-当前已封装的 CTP 版本：
+[当前已封装的 CTP 版本](https://search.maven.org/artifact/org.rationalityfrontline/jctp) ：
 ```
 6.6.1_P1-1.0.0
 6.6.1_P1_CP-1.0.0
@@ -62,7 +62,7 @@ dependencies {
 ```
 **Jar:**
 
-[Releases](https://github.com/RationalityFrontline/jctp/releases)
+[Maven Repository](https://repo1.maven.org/maven2/org/rationalityfrontline/jctp/)
 
 使用 Jar 包前请先添加 [native-lib-loader](https://github.com/scijava/native-lib-loader) 依赖：
 ```kotlin
