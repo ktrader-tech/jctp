@@ -3,6 +3,8 @@
 
 基于 [SWIG](http://www.swig.org/) 实现的对[上期技术](http://www.sfit.com.cn/) CTP 的封装。支持 64 位的 Windows 及 Linux 操作系统，动态链接库已被包含至 jar 包内，并在类加载时自动 loadLibrary，只需添加 jar 包即可直接使用。
 
+> 如果你试图直接基于 CTP 开发交易策略程序，那么相比于繁琐、异步且充满各种坑的 CTP 原生接口，经过良好封装的 [KTrader-Broker-CTP](https://github.com/ktrader-tech/ktrader-broker-ctp) 会是一个更好的选择
+
 [当前已封装的 CTP 版本](https://search.maven.org/artifact/org.rationalityfrontline/jctp) ：
 ```
 6.6.1_P1-1.0.0
