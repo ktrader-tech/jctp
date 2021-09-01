@@ -1,5 +1,7 @@
 # JCTP  
-[![Maven Central](https://img.shields.io/maven-central/v/org.rationalityfrontline/jctp.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22org.rationalityfrontline%22%20AND%20a:%22jctp%22) ![platform](https://img.shields.io/badge/platform-windows%7Clinux-green) [![Apache License 2.0](https://img.shields.io/github/license/rationalityfrontline/jctp)](https://github.com/RationalityFrontline/jctp/blob/master/LICENSE)
+[![Maven Central](https://img.shields.io/maven-central/v/org.rationalityfrontline/jctp.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22org.rationalityfrontline%22%20AND%20a:%22jctp%22)
+![platform](https://img.shields.io/badge/platform-windows%7Clinux-green)
+[![Apache License 2.0](https://img.shields.io/github/license/ktrader-tech/jctp)](https://github.com/ktrader-tech/jctp/blob/master/LICENSE)
 
 基于 [SWIG](http://www.swig.org/) 实现的对[上期技术](http://www.sfit.com.cn/) CTP 的封装。支持 64 位的 Windows 及 Linux 操作系统，动态链接库已被包含至 jar 包内，并在类加载时自动 loadLibrary，只需添加 jar 包即可直接使用。
 
@@ -107,7 +109,7 @@ https://github.com/scijava/native-lib-loader
 
 ## License
 
-JCTP is released under the [Apache 2.0 license](https://github.com/RationalityFrontline/jctp/blob/master/LICENSE).
+JCTP is released under the [Apache 2.0 license](https://github.com/ktrader-tech/jctp/blob/master/LICENSE).
 
 ```
 Copyright 2020-2021 RationalityFrontline
