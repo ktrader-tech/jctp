@@ -9,10 +9,10 @@
 
 [当前已封装的 CTP 版本](https://search.maven.org/artifact/org.rationalityfrontline/jctp) ：
 ```
-6.6.1_P1-1.0.1
-6.6.1_P1_CP-1.0.1
-6.3.19_P1-1.0.1
-6.3.19_T1-1.0.1
+6.6.1_P1-1.0.2
+6.6.1_P1_CP-1.0.2
+6.3.19_P1-1.0.2
+6.3.19_T1-1.0.2
 ```
 
 ## Usage
@@ -51,7 +51,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.rationalityfrontline:jctp:6.6.1_P1-1.0.1")
+    implementation("org.rationalityfrontline:jctp:6.6.1_P1-1.0.2")
 }
 ```
 
@@ -61,7 +61,7 @@ dependencies {
 <dependency>
     <groupId>org.rationalityfrontline</groupId>
     <artifactId>jctp</artifactId>
-    <version>6.6.1_P1-1.0.1</version>
+    <version>6.6.1_P1-1.0.2</version>
 </dependency>
 ```
 **Jar:**
@@ -71,7 +71,7 @@ dependencies {
 使用 Jar 包前请先添加 [native-lib-loader](https://github.com/scijava/native-lib-loader) 依赖：
 ```kotlin
 dependencies {
-    implementation("org.scijava:native-lib-loader:2.3.5")
+    implementation("org.scijava:native-lib-loader:2.4.0")
 }
 ```
 

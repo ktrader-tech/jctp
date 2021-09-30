@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "org.rationalityfrontline"
-version = "6.6.1_P1-1.0.1"
+version = "6.6.1_P1-1.0.2"
 val NAME = project.name
 val DESC = "Java wrapper for CTP"
 val GITHUB_REPO = "ktrader-tech/jctp"
@@ -17,7 +17,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.rationalityfrontline.workaround:native-lib-loader:2.3.7")
+    implementation("org.scijava:native-lib-loader:2.4.0")
 }
 
 java {
@@ -59,7 +59,9 @@ tasks {
         }
     }
     withType(Javadoc::class.java) {
-        options.apply {
+        options {
+            this as StandardJavadocDocletOptions
+            addStringOption("Xdoclint:none")
             encoding = "UTF-8"
         }
     }
