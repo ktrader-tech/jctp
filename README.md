@@ -1,6 +1,7 @@
 # JCTP  
-[![Maven Central](https://img.shields.io/maven-central/v/org.rationalityfrontline/jctp.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22org.rationalityfrontline%22%20AND%20a:%22jctp%22)
-![platform](https://img.shields.io/badge/platform-windows%7Clinux-green)
+[![maven central](https://img.shields.io/maven-central/v/org.rationalityfrontline/jctp.svg?label=maven%20central)](https://search.maven.org/search?q=g:%22org.rationalityfrontline%22%20AND%20a:%22jctp%22)
+![jdk](https://img.shields.io/badge/jdk-%3E%3D11-orange)
+![platform](https://img.shields.io/badge/platform-windows%7Clinux-yellow)
 [![Apache License 2.0](https://img.shields.io/github/license/ktrader-tech/jctp)](https://github.com/ktrader-tech/jctp/blob/master/LICENSE)
 
 基于 [SWIG](http://www.swig.org/) 实现的对[上期技术](http://www.sfit.com.cn/) CTP 的封装。支持 64 位的 Windows 及 Linux 操作系统，动态链接库已被包含至 jar 包内，并在类加载时自动 loadLibrary，只需添加 jar 包即可直接使用。
@@ -9,10 +10,10 @@
 
 [当前已封装的 CTP 版本](https://search.maven.org/artifact/org.rationalityfrontline/jctp) ：
 ```
-6.6.1_P1-1.0.2
-6.6.1_P1_CP-1.0.2
-6.3.19_P1-1.0.2
-6.3.19_T1-1.0.2
+6.6.1_P1-1.0.3
+6.6.1_P1_CP-1.0.3
+6.3.19_P1-1.0.3
+6.3.19_T1-1.0.3
 ```
 
 ## Usage
@@ -51,7 +52,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.rationalityfrontline:jctp:6.6.1_P1-1.0.2")
+    implementation("org.rationalityfrontline:jctp:6.6.1_P1-1.0.3")
 }
 ```
 
@@ -61,7 +62,7 @@ dependencies {
 <dependency>
     <groupId>org.rationalityfrontline</groupId>
     <artifactId>jctp</artifactId>
-    <version>6.6.1_P1-1.0.2</version>
+    <version>6.6.1_P1-1.0.3</version>
 </dependency>
 ```
 **Jar:**
@@ -82,7 +83,7 @@ dependencies {
 1. 安装 [SWIG](http://www.swig.org/download.html) 4.0.2 并将其添加至环境变量中
 2. 安装 [CMake](https://cmake.org/download/) > 3.16 并将其添加至环境变量中
 3. 安装 C++ 编译器（ Windows 下是 [msvc](https://visualstudio.microsoft.com/zh-hans/visual-cpp-build-tools/)，Linux 下是 [gcc/g++](https://gcc.gnu.org/)）
-4. 安装 [JDK 14](https://jdk.java.net/14/) 并将其添加至环境变量中
+4. 安装 JDK 11 或以上的版本，并将其添加至环境变量中
 
 **Windows**
 

@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "org.rationalityfrontline"
-version = "6.6.1_P1-1.0.2"
+version = "6.6.1_P1-1.0.3"
 val NAME = project.name
 val DESC = "Java wrapper for CTP"
 val GITHUB_REPO = "ktrader-tech/jctp"
@@ -29,6 +29,7 @@ java {
 tasks {
     compileJava {
         options.encoding = "utf-8"
+        options.release.set(11)
         doFirst {
             val os = OperatingSystem.current()
             val lineBreak = when {
@@ -61,7 +62,7 @@ tasks {
     withType(Javadoc::class.java) {
         options {
             this as StandardJavadocDocletOptions
-            addStringOption("Xdoclint:none")
+            addStringOption("Xdoclint:none", "-quiet")
             encoding = "UTF-8"
         }
     }
