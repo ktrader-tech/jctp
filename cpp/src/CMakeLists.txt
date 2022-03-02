@@ -25,5 +25,5 @@ add_library(
         jctp SHARED
         jctp.h jctp.cpp
 )
-
-target_link_libraries(jctp thostmduserapi_se thosttraderapi_se)
+# 后面的 RPATH 设置原因参考 https://stackoverflow.com/questions/53306837/unsatisfiedlinkerror-when-system-load-ing-dependent-libraries-in-reverse-order
+target_link_libraries(jctp thostmduserapi_se thosttraderapi_se -Wl,-rpath,"$ORIGIN")

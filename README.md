@@ -10,10 +10,10 @@
 
 [当前已封装的 CTP 版本](https://search.maven.org/artifact/org.rationalityfrontline/jctp) ：
 ```
-6.6.1_P1-1.0.3
-6.6.1_P1_CP-1.0.3
-6.3.19_P1-1.0.3
-6.3.19_T1-1.0.3
+6.6.1_P1-1.0.4
+6.6.1_P1_CP-1.0.4
+6.3.19_P1-1.0.4
+6.3.19_T1-1.0.4
 ```
 
 ## Usage
@@ -39,7 +39,10 @@ fun main() {
 
 ```
 sudo locale-gen zh_CN.GB18030
-sudo dpkg-reconfigure locales
+```
+否则会报以下异常：
+```text
+locale::facet::_S_create_c_locale name not valid
 ```
 
 ## Download
@@ -52,7 +55,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.rationalityfrontline:jctp:6.6.1_P1-1.0.3")
+    implementation("org.rationalityfrontline:jctp:6.6.1_P1-1.0.4")
 }
 ```
 
@@ -62,7 +65,7 @@ dependencies {
 <dependency>
     <groupId>org.rationalityfrontline</groupId>
     <artifactId>jctp</artifactId>
-    <version>6.6.1_P1-1.0.3</version>
+    <version>6.6.1_P1-1.0.4</version>
 </dependency>
 ```
 **Jar:**

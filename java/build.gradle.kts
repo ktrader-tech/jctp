@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "org.rationalityfrontline"
-version = "6.6.1_P1-1.0.3"
+version = "6.6.1_P1-1.0.4"
 val NAME = project.name
 val DESC = "Java wrapper for CTP"
 val GITHUB_REPO = "ktrader-tech/jctp"
