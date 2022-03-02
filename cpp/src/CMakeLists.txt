@@ -14,6 +14,9 @@ if (WIN32)
     set(include_dir ../include/windows)
 elseif(UNIX)
     set(include_dir ../include/linux)
+    # RPATH 设置原因参考 https://stackoverflow.com/questions/53306837/unsatisfiedlinkerror-when-system-load-ing-dependent-libraries-in-reverse-order
+    set(CMAKE_BUILD_WITH_INSTALL_RPATH TRUE)
+    set(CMAKE_INSTALL_RPATH $ORIGIN)
 else()
     set(include_dir ../include)
 endif ()
@@ -25,5 +28,4 @@ add_library(
         jctp SHARED
         jctp.h jctp.cpp
 )
-# 后面的 RPATH 设置原因参考 https://stackoverflow.com/questions/53306837/unsatisfiedlinkerror-when-system-load-ing-dependent-libraries-in-reverse-order
-target_link_libraries(jctp thostmduserapi_se thosttraderapi_se -Wl,-rpath,"$ORIGIN")
+target_link_libraries(jctp thostmduserapi_se thosttraderapi_se)
