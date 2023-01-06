@@ -22,10 +22,10 @@ else()
 endif ()
 include_directories(${include_dir})
 
-link_directories(../../lib)
+link_directories(../../lib/darwin)
 
 add_library(
         jctp SHARED
         jctp.h jctp.cpp
 )
-target_link_libraries(jctp thostmduserapi_se thosttraderapi_se)
+target_link_libraries(jctp thostmduserapi_se thosttraderapi_se ssl crypto comunicationkey)
