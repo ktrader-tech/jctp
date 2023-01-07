@@ -82,7 +82,7 @@ import java.net.URLConnection;
                 BaseJniExtractor jniExtractor = (BaseJniExtractor) NativeLoader.getJniExtractor();
                 File jniDir = jniExtractor.getJniDir();
                 for (String lib : libs) {
-                    URL libRes = jctpJNI.class.getResource(libPath + lib);
+                    URL libRes = jctpJNI.class.getResource("/" + libPath + lib);
                     File outfile = new File(jniDir, lib);
                     InputStream in = null;
                     try {
