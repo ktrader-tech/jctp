@@ -8,7 +8,9 @@ plugins {
 
 group = "org.rationalityfrontline"
 version = "6.6.9-1.0.5"
-val NAME = project.name
+val isMacOS = OperatingSystem.current().isMacOsX  // 是否编译为 MacOS 专用版本
+val isArm64Mac = true  // 是否是 arm64 架构的 MacOS
+val NAME = if (isMacOS) "${project.name}-mac${if (isArm64Mac) "-arm64" else ""}" else project.name
 val DESC = "Java wrapper for CTP"
 val GITHUB_REPO = "ktrader-tech/jctp"
 
@@ -50,21 +52,24 @@ tasks {
             "Implementation-Version" to project.version,
             "Implementation-Vendor" to "RationalityFrontline"
         ))
-        from("../lib") {
-            include("*.dll")
-            into("natives/windows_64")
-        }
-        from("../lib") {
-            include("*.so")
-            into("natives/linux_64")
-        }
-        from("../lib") {
-            include("*.dylib")
-            into("natives/osx_arm64")
-        }
-        from("../lib/darwin") {
-            include("*.a")
-            into("natives/osx_arm64")
+        if (isMacOS) {
+            from("../lib") {
+                include("*.dylib")
+                into("natives/${if (isArm64Mac) "osx_arm64" else "osx_64"}")
+            }
+            from("../lib/darwin") {
+                include("*.a")
+                into("natives/${if (isArm64Mac) "osx_arm64" else "osx_64"}")
+            }
+        } else {
+            from("../lib") {
+                include("*.dll")
+                into("natives/windows_64")
+            }
+            from("../lib") {
+                include("*.so")
+                into("natives/linux_64")
+            }
         }
     }
     withType(Javadoc::class.java) {
