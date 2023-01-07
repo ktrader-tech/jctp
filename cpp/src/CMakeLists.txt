@@ -5,6 +5,8 @@ if(MSVC)
             $<$<CONFIG:>:/MT> #---------|
             $<$<CONFIG:Debug>:/MTd> #---|-- Statically link the runtime libraries
             $<$<CONFIG:Release>:/MT> #--|
+            $<$<C_COMPILER_ID:MSVC>:/utf-8>   #---|
+            $<$<CXX_COMPILER_ID:MSVC>:/utf-8> #---|-- Use UTF-8
     )
 endif()
 
