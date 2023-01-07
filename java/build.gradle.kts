@@ -60,11 +60,11 @@ tasks {
         }
         from("../lib") {
             include("*.dylib")
-            into("natives/osx_64")
+            into("natives/osx_arm64")
         }
         from("../lib/darwin") {
             include("*.a")
-            into("natives/osx_64")
+            into("natives/osx_arm64")
         }
     }
     withType(Javadoc::class.java) {

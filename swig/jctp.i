@@ -46,7 +46,15 @@ jstring convertUTF8(JNIEnv *jenv, char *input) {
 }
 
 %pragma(java) jniclassimports=%{
+import org.scijava.nativelib.BaseJniExtractor;
+import org.scijava.nativelib.NativeLibraryUtil;
 import org.scijava.nativelib.NativeLoader;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
 %}
 %pragma(java) jniclasscode=%{
 	private static boolean libraryLoaded = false;
@@ -61,8 +69,50 @@ import org.scijava.nativelib.NativeLoader;
 
     static {
         try {
-            NativeLoader.loadLibrary("thostmduserapi_se");
-            NativeLoader.loadLibrary("thosttraderapi_se");
+            String osName = System.getProperty("os.name").toLowerCase();
+            if (osName.contains("mac")) {
+                String[] libs = {
+                        "libcomunicationkey.a",
+                        "libcrypto.a",
+                        "libssl.a",
+                        "libthostmduserapi_se.a",
+                        "libthosttraderapi_se.a",
+                };
+                String libPath = NativeLibraryUtil.getPlatformLibraryPath(NativeLibraryUtil.DEFAULT_SEARCH_PATH);
+                BaseJniExtractor jniExtractor = (BaseJniExtractor) NativeLoader.getJniExtractor();
+                File jniDir = jniExtractor.getJniDir();
+                for (String lib : libs) {
+                    URL libRes = jctpJNI.class.getResource(libPath + lib);
+                    File outfile = new File(jniDir, lib);
+                    InputStream in = null;
+                    try {
+                        URLConnection connection = libRes.openConnection();
+                        connection.setUseCaches(false);
+                        in = connection.getInputStream();
+                        FileOutputStream out = null;
+                        try {
+                            out = new FileOutputStream(outfile);
+                            final byte[] tmp = new byte[8192];
+                            int len = 0;
+                            while (true) {
+                                len = in.read(tmp);
+                                if (len <= 0) {
+                                    break;
+                                }
+                                out.write(tmp, 0, len);
+                            }
+                        } finally {
+                            if (out != null) { out.close(); }
+                        }
+                        outfile.deleteOnExit();
+                    } finally {
+                        if (in != null) { in.close(); }
+                    }
+                }
+            } else {
+                NativeLoader.loadLibrary("thostmduserapi_se");
+                NativeLoader.loadLibrary("thosttraderapi_se");
+            }
             NativeLoader.loadLibrary("jctp");
             swig_module_init();
             libraryLoaded = true;

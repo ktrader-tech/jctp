@@ -4,5 +4,5 @@ module jctp {
 
     opens natives.windows_64;
     opens natives.linux_64;
-    opens natives.osx_64;
+    opens natives.osx_arm64;
 }
