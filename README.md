@@ -10,10 +10,12 @@
 
 [当前已封装的 CTP 版本](https://search.maven.org/artifact/org.rationalityfrontline/jctp) ：
 ```
-6.6.1_P1-1.0.4
-6.6.1_P1_CP-1.0.4
-6.3.19_P1-1.0.4
-6.3.19_T1-1.0.4
+6.6.9-1.0.5
+6.6.9_CP-1.0.5
+6.6.1_P1-1.0.5
+6.6.1_P1_CP-1.0.5
+6.3.19_P1-1.0.5
+6.3.19_T1-1.0.5
 ```
 
 ## Usage
@@ -55,7 +57,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.rationalityfrontline:jctp:6.6.1_P1-1.0.4")
+    implementation("org.rationalityfrontline:jctp:6.6.9-1.0.5")
 }
 ```
 
@@ -65,7 +67,7 @@ dependencies {
 <dependency>
     <groupId>org.rationalityfrontline</groupId>
     <artifactId>jctp</artifactId>
-    <version>6.6.1_P1-1.0.4</version>
+    <version>6.6.9-1.0.5</version>
 </dependency>
 ```
 **Jar:**
@@ -116,7 +118,7 @@ https://github.com/scijava/native-lib-loader
 JCTP is released under the [Apache 2.0 license](https://github.com/ktrader-tech/jctp/blob/master/LICENSE).
 
 ```
-Copyright 2020-2021 RationalityFrontline
+Copyright 2020-2023 RationalityFrontline
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
