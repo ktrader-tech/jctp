@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "org.rationalityfrontline"
-version = "6.6.9-1.0.5"
+version = "6.7.2-1.0.5"
 val NAME = project.name
 val DESC = "Java wrapper for CTP"
 val GITHUB_REPO = "ktrader-tech/jctp"
@@ -17,7 +17,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.scijava:native-lib-loader:2.4.0")
+    implementation("org.scijava:native-lib-loader:2.5.0")
 }
 
 java {
