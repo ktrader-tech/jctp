@@ -10,6 +10,8 @@
 
 [当前已封装的 CTP 版本](https://search.maven.org/artifact/org.rationalityfrontline/jctp) ：
 ```
+6.7.8-1.0.5
+6.7.8_CP-1.0.5
 6.7.2-1.0.5
 6.7.2_CP-1.0.5
 6.6.9-1.0.5
@@ -59,7 +61,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.rationalityfrontline:jctp:6.7.2-1.0.5")
+    implementation("org.rationalityfrontline:jctp:6.7.8-1.0.5")
 }
 ```
 
@@ -69,7 +71,7 @@ dependencies {
 <dependency>
     <groupId>org.rationalityfrontline</groupId>
     <artifactId>jctp</artifactId>
-    <version>6.7.2-1.0.5</version>
+    <version>6.7.8-1.0.5</version>
 </dependency>
 ```
 **Jar:**
